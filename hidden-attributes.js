@@ -39,10 +39,9 @@ function updatePersonalityTypes() {
         }
     }
     const options = Array.from(select.options);
-   
-    console.log(JSON.stringify(options));
 
     if (options.find((o) => o.name === selected)) {
+        console.log("Found " + selected)
         select.value = select.options.item(0);
     }
     sortSelect("en", select);
