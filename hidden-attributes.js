@@ -43,11 +43,13 @@ function updatePersonalityTypes() {
     const selected = select.value;
 
     if (options.find((o) => o.value === selected)) {
+        console.log("Found " + selected);
         sortSelect(select);
     } else {
         console.log("Not Found " + selected);
         select.value = select.options.item(0);
         console.log("Final select value is - " + select.value);
+        sortSelect(select);
         updatePersonalityTypes();
     }
 }
