@@ -1487,7 +1487,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": []
+    "not_cases": []
   },
   "Out, ST, Con": {
     "professionalism": {
@@ -1522,7 +1522,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": []
+    "not_cases": []
   },
   "Out, ST": {
     "professionalism": {
@@ -1557,7 +1557,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": []
+    "not_cases": []
   },
   "Out, Vol, Con": {
     "professionalism": {
@@ -1592,7 +1592,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": []
+    "not_cases": []
   },
   "Out, Vol": {
     "professionalism": {
@@ -1627,7 +1627,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": []
+    "not_cases": []
   },
   "Out, Con": {
     "professionalism": {
@@ -1662,9 +1662,9 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": [
-      "not_confrontational",
-      "not_unflappable"
+    "not_cases": [
+      "confrontational",
+      "unflappable"
     ]
   },
   "Out": {
@@ -1700,9 +1700,9 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "cases": [
-      "not_confrontational",
-      "not_unflappable"
+    "not_cases": [
+      "confrontational",
+      "unflappable"
     ]
   },
   "Eva, Unf": {
@@ -1738,7 +1738,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "Eva, St, Con": {
     "professionalism": {
@@ -1773,7 +1773,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "Eva, ST": {
     "professionalism": {
@@ -1808,7 +1808,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "Eva, Vol, Con": {
     "professionalism": {
@@ -1843,7 +1843,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "Eva, Vol": {
     "professionalism": {
@@ -1878,7 +1878,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "Eva, Con": {
     "professionalism": {
@@ -1913,7 +1913,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "Eva, Res": {
     "professionalism": {
@@ -1948,9 +1948,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 5
     },
-    "cases": [
-      "not_confrontational",
-      "not_unflappable"
+    "not_cases": [
+      "confrontational",
+      "unflappable"
     ]
   },
   "Eva": {
@@ -1986,9 +1986,9 @@ const mediaHandlingData = {
       "min": 6,
       "max": 14
     },
-    "cases": [
-      "not_confrontational",
-      "not_unflappable"
+    "not_cases": [
+      "confrontational",
+      "unflappable"
     ]
   },
   "Unf": {
@@ -2024,7 +2024,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": []
+    "not_cases": []
   },
   "ST, Con": {
     "professionalism": {
@@ -2059,7 +2059,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": ["not_evasive"]
+    "not_cases": ["evasive"]
   },
   "ST": {
     "professionalism": {
@@ -2094,7 +2094,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": ["not_evasive"]
+    "not_cases": ["evasive"]
   },
   "Vol, Con": {
     "professionalism": {
@@ -2129,7 +2129,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": ["not_evasive"]
+    "not_cases": ["evasive"]
   },
   "Vol": {
     "professionalism": {
@@ -2164,7 +2164,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": ["not_evasive"]
+    "not_cases": ["evasive"]
   },
   "Con": {
     "professionalism": {
@@ -2199,7 +2199,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": ["not_evasive"]
+    "not_cases": ["evasive"]
   },
   "Res": {
     "professionalism": {
@@ -2234,9 +2234,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 5
     },
-    "cases": [
-      "not_evasive",
-      "not_confrontational"
+    "not_cases": [
+      "evasive",
+      "confrontational"
     ]
   },
   "LH": {
@@ -2272,11 +2272,11 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_confrontational",
-      "not_unflappable",
-      "not_reserved"
+    "not_cases": [
+      "evasive",
+      "confrontational",
+      "unflappable",
+      "reserved"
     ]
   },
   "MF, Unf": {
@@ -2312,7 +2312,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": ["not_level_headed"]
+    "not_cases": ["level_headed"]
   },
   "MF, ST, Con": {
     "professionalism": {
@@ -2347,9 +2347,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_level_headed"
+    "not_cases": [
+      "evasive",
+      "level_headed"
     ]
   },
   "MF, ST": {
@@ -2385,9 +2385,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_level_headed"
+    "not_cases": [
+      "evasive",
+      "level_headed"
     ]
   },
   "MF, Vol, Con": {
@@ -2423,9 +2423,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_level_headed"
+    "not_cases": [
+      "evasive",
+      "level_headed"
     ]
   },
   "MF, Vol": {
@@ -2461,9 +2461,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_level_headed"
+    "not_cases": [
+      "evasive",
+      "level_headed"
     ]
   },
   "MF, Con": {
@@ -2499,9 +2499,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_level_headed"
+    "not_cases": [
+      "evasive",
+      "level_headed"
     ]
   },
   "MF, Res": {
@@ -2537,9 +2537,9 @@ const mediaHandlingData = {
       "min": 1,
       "max": 5
     },
-    "cases": [
-      "not_confrontational",
-      "not_unflappable"
+    "not_cases": [
+      "confrontational",
+      "unflappable"
     ]
   },
   "MF": {
@@ -2575,12 +2575,12 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "cases": [
-      "not_evasive",
-      "not_level_headed",
-      "not_confrontational",
-      "not_unflappable",
-      "not_reserved"
+    "not_cases": [
+      "evasive",
+      "level_headed",
+      "confrontational",
+      "unflappable",
+      "reserved"
     ]
   }
 }

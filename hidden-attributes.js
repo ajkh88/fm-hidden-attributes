@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { personalityData, mediaHandlingData} from "./hidden-attributes-data.js" 
 
 function updatePersonalityTypes() {
@@ -15,7 +16,6 @@ function updatePersonalityTypes() {
     };
     const checkbox = document.getElementById("is_newgen");
     const select = document.getElementById("personality_types");
-    console.log("Initial select value is - " + select.value);
    
     if (checkbox.checked) {
         for (let key in newGenTypes) {
@@ -60,7 +60,6 @@ function sortSelect(selElem) {
     }
 }
 
-
 export function updateTable() {
     const personalityTypeSelector = document.getElementById("personality_types")
     const personalityType = personalityTypeSelector.options[personalityTypeSelector.selectedIndex].text;
@@ -76,9 +75,12 @@ export function updateTable() {
 
     const determinationCasesApplied = applyDeterminationCases(determination, personalityAttributes.cases_determination, merged)
 
+    const notCasesApplied = applyNotCases(personalityAttributes.cases_not, determinationCasesApplied);
+    const mediaNotCasesApplied = applyNotCases(mediaHandlingAttributes.cases_not, notCasesApplied);
+
     for (const attribute in determinationCasesApplied) {
-        document.getElementById(attribute + "_min").innerHTML = determinationCasesApplied[attribute].min;
-        document.getElementById(attribute + "_max").innerHTML = determinationCasesApplied[attribute].max;
+        document.getElementById(attribute + "_min").innerHTML = mediaNotCasesApplied[attribute].min;
+        document.getElementById(attribute + "_max").innerHTML = mediaNotCasesApplied[attribute].max;
     }
 }
 
@@ -86,77 +88,243 @@ function applyDeterminationCases(determination, determinationCases, calculatedAt
     let result = Object.create(calculatedAttributes);
     for (const c of determinationCases) {
         switch(c) {
-            case "1_5_ambition":
+            case "1_5_ambition": {
                 if (determination >= 1 && determination <= 5) {
                     result.ambition.min = Math.max(10, result.ambition.min)
                     result.ambition.max = Math.min(20, result.ambition.max)
                 }
                 break;
-            case "1_9_professionalism":
+            }
+            case "1_9_professionalism": {
                 if (determination >= 1 && determination <= 9) {
                     result.professionalism.min = Math.max(5, result.professionalism.min)
                     result.professionalism.max = Math.min(20, result.professionalism.max)
                 }
                 break;
-            case "1_9_pressure":
+            }
+            case "1_9_pressure": {
                 if (determination >= 1 && determination <= 9) {
                     result.pressure.min = Math.max(4, result.pressure.min)
                     result.pressure.max = Math.min(20, result.pressure.max)
                 }
                 break;
-            case "1_9_sportsmanship":
+            }
+            case "1_9_sportsmanship": {
                 if (determination >= 1 && determination <= 9) {
                     result.sportsmanship.min = Math.max(1, result.sportsmanship.min)
                     result.sportsmanship.max = Math.min(17, result.sportsmanship.max)
                 }
                 break;
-            case "11_20_sportsmanship":
+            }
+            case "11_20_sportsmanship": {
                 if (determination >= 11 && determination <= 20) {
                     result.sportsmanship.min = Math.max(5, result.sportsmanship.min)
                     result.sportsmanship.max = Math.min(20, result.sportsmanship.max)
                 }
                 break;
-            case "15_20_pressure":
+            }
+            case "15_20_pressure": {
                 if (determination >= 15 && determination <= 20) {
                     result.pressure.min = Math.max(15, result.pressure.min)
                     result.pressure.max = Math.min(16, result.pressure.max)
                 }
                 break;
-            case "18_20_ambition":
+            }
+            case "18_20_ambition": {
                 if (determination >= 18 && determination <= 20) {
                     result.ambition.min = Math.max(1, result.ambition.min)
                     result.ambition.max = Math.min(9, result.ambition.max)
                 }
                 break;
-            default:
+            }
+            default: {
                 break;
+            }
         }
     }
     return result;
 }
 
 function applyNotCases(notCases, calculatedAttributes) {
-
+    let result = Object.create(calculatedAttributes);
     for (const c of notCases) {
         console.log(c)
         switch(c) {
-            case "temperamental":
+            case "temperamental": {
+                const temRange = {
+                    min: 5,
+                    max: 20
+                }
+                const proRange = {
+                    min: 11,
+                    max: 20
+                }
+                calculateRanges(result, temRange, "temperament")
+                calculateRanges(result, proRange, "professionalism")
                 break;
-            case "professional":
+            }
+            case "professional": {
+                const proRange = {
+                    min: 1,
+                    max: 17
+                }
+                const temRange = {
+                    min: 1,
+                    max: 9
+                }
+                calculateRanges(result, proRange, "professionalism")
+                calculateRanges(result, temRange, "temperament")
                 break;
-            case "ambitious":
+            }
+            case "ambitious": {
+                const ambRange = {
+                    min: 1,
+                    max: 15
+                }
+                const loyRange = {
+                    min: 10,
+                    max: 20
+                }
+                calculateRanges(result, ambRange, "ambition")
+                calculateRanges(result, loyRange, "loyalty")
                 break;
-            case "unabitious":
+            }
+            case "unabitious": {
+                const ambRange = {
+                    min: 6,
+                    max: 20
+                }
+                const loyRange = {
+                    min: 1,
+                    max: 10
+                }
+                calculateRanges(result, ambRange, "ambition")
+                calculateRanges(result, loyRange, "loyalty")
+      
                 break;
-            case "loyal":
+            }
+            case "loyal": {
+                const loyRange = {
+                    min: 1,
+                    max: 17
+                }
+                const ambRange = {
+                    min: 8,
+                    max: 20
+                }
+                calculateRanges(result, loyRange, "loyalty")
+                calculateRanges(result, ambRange, "ambition")
                 break;
-            case "spirit_or_jovial":
+            }
+            case "spirit_or_jovial": {
+                const temRange = {
+                    min: 1,
+                    max: 9
+                }
+                const preRange = {
+                    min: 1,
+                    max: 14
+                }
+                calculateRanges(result, temRange, "temperament")
+                calculateRanges(result, preRange, "pressure")
                 break;
-            case "perfectionist":
+            }
+            case "perfectionist": {
+                const proRange = {
+                    min: 1,
+                    max: 17
+                }
+                const ambRange = {
+                    min: 10,
+                    max: 17
+                }
+                calculateRanges(result, proRange, "professionalism")
+                calculateRanges(result, ambRange, "ambition")
                 break;
+            }
+            case "evasive": {
+                const preRange = {
+                    min: 1,
+                    max: 14
+                }
+                const proRange = {
+                    min: 1,
+                    max: 14
+                }
+                calculateRanges(result, preRange, "pressure")
+                calculateRanges(result, proRange, "professionalism")
+                break;
+            }
+            case "level_headed": {
+                const loyRange = {
+                    min: 1,
+                    max: 10
+                }
+                const spoRange = {
+                    min: 1,
+                    max: 11
+                }
+                const proRange = {
+                    min: 1,
+                    max: 12
+                }
+                calculateRanges(result, loyRange, "loyalty")
+                calculateRanges(result, spoRange, "sportsmanship")
+                calculateRanges(result, proRange, "professionalism")
+                break;
+            }
+            case "confrontational": {
+                const temRange = {
+                    min: 8,
+                    max: 20
+                }
+                const spoRange = {
+                    min: 8,
+                    max: 20
+                }
+                calculateRanges(result, temRange, "temperament")
+                calculateRanges(result, spoRange, "sportsmanship")
+                break;
+            }
+            case "unflappable": {
+                const temRange = {
+                    min: 1,
+                    max: 14
+                }
+                const preRange = {
+                    min: 1,
+                    max: 14
+                }
+                calculateRanges(result, temRange, "temperament")
+                calculateRanges(result, preRange, "pressure")
+                break;
+            }
+            case "reserved": {
+                const conRange = {
+                    min: 6,
+                    max: 14
+                }
+                const proRange = {
+                    min: 1,
+                    max: 14
+                }
+                calculateRanges(result, conRange, "controversy")
+                calculateRanges(result, proRange, "professionalism")
+                break;
+            }
         }
     }
+}
 
+function calculateRanges(result, range, facet) {
+    if (isOverlapping(range, result[facet])) {
+        result[facet].min = Math.max(range[facet].min, result[facet].min)
+        result[facet].max = Math.min(range[facet].max, result[facet].max)
+    }
+}
+
+function isOverlapping(a, b) {
+    return a.min <= b.max && b.min <= a.max;
 }
 
 function mergeAttributes(personalityAttributes, mediaHandlingAttributes) {
@@ -202,7 +370,6 @@ function generateSelectorElement(name) {
         mediaHandlingStyleNames.forEach((name) => {
             mediaHandlingSelector.appendChild(generateSelectorElement(name));
         });
-         // TODO BUG IN MEDIA HANDLING PARSING
 
         // Event handling - update on change of any value
         personalitySelector.addEventListener("change", () => {
