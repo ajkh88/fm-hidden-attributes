@@ -46,7 +46,6 @@ function updatePersonalityTypes() {
         select.value = select.options.item(0);
     }
     sortSelect("en", select);
-
 }
 
 function sortSelect(lang, selectNode) {
