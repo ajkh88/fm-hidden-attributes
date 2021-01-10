@@ -77,6 +77,7 @@ export function updateTable() {
 
     console.log("Cases pers: " + JSON.stringify(personalityAttributes.cases_not));
     console.log("Cases medh: " + JSON.stringify(mediaHandlingAttributes.cases_not));
+    console.log("applied: " + JSON.stringify(determinationCasesApplied));
     const notCasesApplied = applyNotCases(personalityAttributes.cases_not, determinationCasesApplied);
     const mediaNotCasesApplied = applyNotCases(mediaHandlingAttributes.cases_not, notCasesApplied);
 
