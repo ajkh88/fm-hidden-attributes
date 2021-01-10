@@ -45,8 +45,7 @@ function updatePersonalityTypes() {
 
     if (options.find((o) => o.value === selected)) {
         sortSelect(select);
-        console.log("Not found " + selected)
-        updatePersonalityTypes();
+        console.log("Not found " + selected);
     }
     updatePersonalityTypes();
 }
