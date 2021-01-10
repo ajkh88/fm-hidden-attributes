@@ -48,15 +48,24 @@ function updatePersonalityTypes() {
         console.log("Found " + selected)
         select.value = select.options.item(0);
     }
-    sortSelect("en", select);
+    sortSelect(select);
 }
 
-function sortSelect(lang, selectNode) {
-    const optionNodes = Array.from(selectNode.children);
-    const comparator = new Intl.Collator(lang.slice(0, 2)).compare;
-
-    optionNodes.sort((a, b) => comparator(a.textContent, b.textContent));
-    optionNodes.forEach((option) => selectNode.appendChild(option));
+function sortSelect(selElem) {
+    const tmpAry = [];
+    for (let i = 0; i < selElem.options.length; i++) {
+        tmpAry[i] = [];
+        tmpAry[i][0] = selElem.options[i].text;
+        tmpAry[i][1] = selElem.options[i].value;
+    }
+    tmpAry.sort();
+    while (selElem.options.length > 0) {
+        selElem.options[0] = null;
+    }
+    for (let i = 0; i < tmpAry.length; i++) {
+        const op = new Option(tmpAry[i][0], tmpAry[i][1]);
+        selElem.options[i] = op;
+    }
 }
 
 
