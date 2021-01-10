@@ -75,6 +75,8 @@ export function updateTable() {
 
     const determinationCasesApplied = applyDeterminationCases(determination, personalityAttributes.cases_determination, merged)
 
+    console.log("Cases pers: " + JSON.stringify(personalityAttributes.cases_not));
+    console.log("Cases medh: " + JSON.stringify(mediaHandlingAttributes.cases_not));
     const notCasesApplied = applyNotCases(personalityAttributes.cases_not, determinationCasesApplied);
     const mediaNotCasesApplied = applyNotCases(mediaHandlingAttributes.cases_not, notCasesApplied);
 

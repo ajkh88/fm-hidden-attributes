@@ -1487,7 +1487,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Out, ST, Con": {
     "professionalism": {
@@ -1522,7 +1522,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Out, ST": {
     "professionalism": {
@@ -1557,7 +1557,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Out, Vol, Con": {
     "professionalism": {
@@ -1592,7 +1592,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Out, Vol": {
     "professionalism": {
@@ -1627,7 +1627,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Out, Con": {
     "professionalism": {
@@ -1662,7 +1662,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": [
+    "cases_not": [
       "confrontational",
       "unflappable"
     ]
@@ -1700,7 +1700,7 @@ const mediaHandlingData = {
       "min": 15,
       "max": 20
     },
-    "not_cases": [
+    "cases_not": [
       "confrontational",
       "unflappable"
     ]
@@ -1738,7 +1738,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Eva, St, Con": {
     "professionalism": {
@@ -1773,7 +1773,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Eva, ST": {
     "professionalism": {
@@ -1808,7 +1808,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Eva, Vol, Con": {
     "professionalism": {
@@ -1843,7 +1843,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Eva, Vol": {
     "professionalism": {
@@ -1878,7 +1878,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Eva, Con": {
     "professionalism": {
@@ -1913,7 +1913,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "Eva, Res": {
     "professionalism": {
@@ -1948,7 +1948,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 5
     },
-    "not_cases": [
+    "cases_not": [
       "confrontational",
       "unflappable"
     ]
@@ -1986,7 +1986,7 @@ const mediaHandlingData = {
       "min": 6,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "confrontational",
       "unflappable"
     ]
@@ -2024,7 +2024,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": []
+    "cases_not": []
   },
   "ST, Con": {
     "professionalism": {
@@ -2059,7 +2059,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": ["evasive"]
+    "cases_not": ["evasive"]
   },
   "ST": {
     "professionalism": {
@@ -2094,7 +2094,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": ["evasive"]
+    "cases_not": ["evasive"]
   },
   "Vol, Con": {
     "professionalism": {
@@ -2129,7 +2129,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": ["evasive"]
+    "cases_not": ["evasive"]
   },
   "Vol": {
     "professionalism": {
@@ -2164,7 +2164,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": ["evasive"]
+    "cases_not": ["evasive"]
   },
   "Con": {
     "professionalism": {
@@ -2199,7 +2199,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": ["evasive"]
+    "cases_not": ["evasive"]
   },
   "Res": {
     "professionalism": {
@@ -2234,7 +2234,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 5
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "confrontational"
     ]
@@ -2272,7 +2272,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "confrontational",
       "unflappable",
@@ -2312,7 +2312,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": ["level_headed"]
+    "cases_not": ["level_headed"]
   },
   "MF, ST, Con": {
     "professionalism": {
@@ -2347,7 +2347,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "level_headed"
     ]
@@ -2385,7 +2385,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "level_headed"
     ]
@@ -2423,7 +2423,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "level_headed"
     ]
@@ -2461,7 +2461,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "level_headed"
     ]
@@ -2499,7 +2499,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "level_headed"
     ]
@@ -2537,7 +2537,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 5
     },
-    "not_cases": [
+    "cases_not": [
       "confrontational",
       "unflappable"
     ]
@@ -2575,7 +2575,7 @@ const mediaHandlingData = {
       "min": 1,
       "max": 14
     },
-    "not_cases": [
+    "cases_not": [
       "evasive",
       "level_headed",
       "confrontational",
