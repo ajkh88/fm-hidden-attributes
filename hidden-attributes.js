@@ -74,7 +74,6 @@ export function updateTable() {
     const determination = document.getElementById("determination").value
 
     const determinationCasesApplied = applyDeterminationCases(determination, personalityAttributes.cases_determination, merged)
-    console.log("RdeterminationCasesApplied" + JSON.stringify(determinationCasesApplied))
     const notCasesApplied = applyNotCases(personalityAttributes.cases_not, determinationCasesApplied);
     const mediaNotCasesApplied = applyNotCases(mediaHandlingAttributes.cases_not, notCasesApplied);
 
@@ -85,7 +84,9 @@ export function updateTable() {
 }
 
 function applyDeterminationCases(determination, determinationCases, calculatedAttributes) {
+    console.log("calculatedAttributes" + JSON.stringify(calculatedAttributes))
     let result = Object.create(calculatedAttributes);
+    console.log("result" + JSON.stringify(result))
     for (const c of determinationCases) {
         switch(c) {
             case "1_5_ambition": {
@@ -142,6 +143,7 @@ function applyDeterminationCases(determination, determinationCases, calculatedAt
             }
         }
     }
+    console.log("final result" + JSON.stringify(result))
     return result;
 }
 
