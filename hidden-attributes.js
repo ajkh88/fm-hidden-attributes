@@ -84,7 +84,6 @@ export function updateTable() {
 }
 
 function applyDeterminationCases(determination, determinationCases, calculatedAttributes) {
-    console.log("calculatedAttributes" + JSON.stringify(calculatedAttributes))
     for (const c of determinationCases) {
         switch(c) {
             case "1_5_ambition": {
@@ -145,7 +144,6 @@ function applyDeterminationCases(determination, determinationCases, calculatedAt
 
 function applyNotCases(notCases, calculatedAttributes) {
     for (const c of notCases) {
-        console.log(c)
         switch(c) {
             case "temperamental": {
                 const temRange = {
@@ -313,11 +311,11 @@ function applyNotCases(notCases, calculatedAttributes) {
     }
 }
 
-function calculateRanges(result, range, facet) {
-    console.log(JSON.stringify(result))
-    if (isOverlapping(range, result[facet])) {
-        result[facet].min = Math.max(range[facet].min, result[facet].min)
-        result[facet].max = Math.min(range[facet].max, result[facet].max)
+function calculateRanges(calculatedAttributes, range, facet) {
+    console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
+    if (isOverlapping(range, calculatedAttributes[facet])) {
+        calculatedAttributes[facet].min = Math.max(range[facet].min, calculatedAttributes[facet].min)
+        calculatedAttributes[facet].max = Math.min(range[facet].max, calculatedAttributes[facet].max)
     }
 }
 
