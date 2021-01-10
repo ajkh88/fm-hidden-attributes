@@ -146,6 +146,7 @@ function applyNotCases(notCases, calculatedAttributes) {
     console.log("notCases " + JSON.stringify(notCases))
 
     for (const c of notCases) {
+        console.log("calculation " + c)
         switch(c) {
             case "temperamental": {
                 const temRange = {
@@ -314,13 +315,13 @@ function applyNotCases(notCases, calculatedAttributes) {
 }
 
 function calculateRanges(calculatedAttributes, range, attribute) {
-   // console.log("calculating range for : " + JSON.stringify(range) + " with attr " + attribute)
+    console.log("calculating range for : " + JSON.stringify(range) + " with attr " + attribute)
    
     if (isOverlapping(range, calculatedAttributes[attribute])) {
         calculatedAttributes[attribute].min = Math.max(range.min, calculatedAttributes[attribute].min)
         calculatedAttributes[attribute].max = Math.min(range.max, calculatedAttributes[attribute].max)
     }
-    //console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
+    console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
 }
 
 function isOverlapping(a, b) {
