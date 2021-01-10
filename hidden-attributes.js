@@ -143,7 +143,7 @@ function applyDeterminationCases(determination, determinationCases, calculatedAt
     }
 }
 
-function applyNotCases(notCases, calculatedAttributes) {
+function applyNotCases(notCases, calculatedAttributes, referenceStats) {
     console.log("notCases " + JSON.stringify(notCases))
 
     for (const c of notCases) {
@@ -158,21 +158,23 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 11,
                     max: 20
                 }
-                calculateRanges(calculatedAttributes, temRange, "temperament")
-                calculateRanges(calculatedAttributes, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, temRange, "temperament", referenceStats);
+                calculateRanges(calculatedAttributes, proRange, "professionalism", referenceStats);
                 break;
             }
             case "professional": {
                 const proRange = {
                     min: 1,
-                    max: 17
+                    max: 17,
+                    attr_min: 1,
+                    attr_max: 4
                 }
                 const temRange = {
                     min: 1,
                     max: 9
                 }
-                calculateRanges(calculatedAttributes, proRange, "professionalism")
-                calculateRanges(calculatedAttributes, temRange, "temperament")
+                calculateRanges(calculatedAttributes, proRange, "professionalism", referenceStats);
+                calculateRanges(calculatedAttributes, temRange, "temperament", referenceStats);
                 break;
             }
             case "ambitious": {
@@ -184,8 +186,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 10,
                     max: 20
                 }
-                calculateRanges(calculatedAttributes, ambRange, "ambition")
-                calculateRanges(calculatedAttributes, loyRange, "loyalty")
+                calculateRanges(calculatedAttributes, ambRange, "ambition", referenceStats);
+                calculateRanges(calculatedAttributes, loyRange, "loyalty", referenceStats);
                 break;
             }
             case "unabitious": {
@@ -197,8 +199,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 10
                 }
-                calculateRanges(calculatedAttributes, ambRange, "ambition")
-                calculateRanges(calculatedAttributes, loyRange, "loyalty")
+                calculateRanges(calculatedAttributes, ambRange, "ambition", referenceStats);
+                calculateRanges(calculatedAttributes, loyRange, "loyalty", referenceStats);
       
                 break;
             }
@@ -211,8 +213,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 8,
                     max: 20
                 }
-                calculateRanges(calculatedAttributes, loyRange, "loyalty")
-                calculateRanges(calculatedAttributes, ambRange, "ambition")
+                calculateRanges(calculatedAttributes, loyRange, "loyalty", referenceStats);
+                calculateRanges(calculatedAttributes, ambRange, "ambition", referenceStats);
                 break;
             }
             case "spirit_or_jovial": {
@@ -224,8 +226,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(calculatedAttributes, temRange, "temperament")
-                calculateRanges(calculatedAttributes, preRange, "pressure")
+                calculateRanges(calculatedAttributes, temRange, "temperament", referenceStats);
+                calculateRanges(calculatedAttributes, preRange, "pressure", referenceStats);
                 break;
             }
             case "perfectionist": {
@@ -237,21 +239,21 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 10,
                     max: 17
                 }
-                calculateRanges(calculatedAttributes, proRange, "professionalism")
-                calculateRanges(calculatedAttributes, ambRange, "ambition")
+                calculateRanges(calculatedAttributes, proRange, "professionalism", referenceStats);
+                calculateRanges(calculatedAttributes, ambRange, "ambition", referenceStats);
                 break;
             }
             case "evasive": {
                 const preRange = {
                     min: 1,
-                    max: 14
+                    max: 14,
                 }
                 const proRange = {
                     min: 1,
-                    max: 14
+                    max: 14,
                 }
-                calculateRanges(calculatedAttributes, preRange, "pressure")
-                calculateRanges(calculatedAttributes, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, preRange, "pressure", referenceStats);
+                calculateRanges(calculatedAttributes, proRange, "professionalism", referenceStats);
                 break;
             }
             case "level_headed": {
@@ -267,9 +269,9 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 12
                 }
-                calculateRanges(calculatedAttributes, loyRange, "loyalty")
-                calculateRanges(calculatedAttributes, spoRange, "sportsmanship")
-                calculateRanges(calculatedAttributes, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, loyRange, "loyalty", referenceStats);
+                calculateRanges(calculatedAttributes, spoRange, "sportsmanship", referenceStats);
+                calculateRanges(calculatedAttributes, proRange, "professionalism", referenceStats);
                 break;
             }
             case "confrontational": {
@@ -281,8 +283,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 8,
                     max: 20
                 }
-                calculateRanges(calculatedAttributes, temRange, "temperament")
-                calculateRanges(calculatedAttributes, spoRange, "sportsmanship")
+                calculateRanges(calculatedAttributes, temRange, "temperament", referenceStats);
+                calculateRanges(calculatedAttributes, spoRange, "sportsmanship", referenceStats);
                 break;
             }
             case "unflappable": {
@@ -294,8 +296,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(calculatedAttributes, temRange, "temperament")
-                calculateRanges(calculatedAttributes, preRange, "pressure")
+                calculateRanges(calculatedAttributes, temRange, "temperament", referenceStats);
+                calculateRanges(calculatedAttributes, preRange, "pressure", referenceStats);
                 break;
             }
             case "reserved": {
@@ -307,26 +309,27 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(calculatedAttributes, conRange, "controversy")
-                calculateRanges(calculatedAttributes, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, conRange, "controversy", referenceStats);
+                calculateRanges(calculatedAttributes, proRange, "professionalism", referenceStats);
                 break;
             }
         }
     }
 }
 
-function calculateRanges(calculatedAttributes, range, attribute) {
+// eslint-disable-next-line max-params
+function calculateRanges(calculatedAttributes, range, attribute, referenceStats) {
     console.log("calculating range for : " + JSON.stringify(range) + " with attr " + attribute)
    
-    if (isNotOverlapping(range, calculatedAttributes[attribute])) {
+    if (isOverlapping(referenceStats[attribute], calculatedAttributes[attribute])) {
         calculatedAttributes[attribute].min = Math.max(range.min, calculatedAttributes[attribute].min)
         calculatedAttributes[attribute].max = Math.min(range.max, calculatedAttributes[attribute].max)
     }
     console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
 }
 
-function isNotOverlapping(a, b) {
-    return !(a.min <= b.max && b.min <= a.max);
+function isOverlapping(a, b) {
+    return a.min <= b.max && b.min <= a.max;
 }
 
 function mergeAttributes(personalityAttributes, mediaHandlingAttributes) {
