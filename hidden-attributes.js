@@ -85,56 +85,54 @@ export function updateTable() {
 
 function applyDeterminationCases(determination, determinationCases, calculatedAttributes) {
     console.log("calculatedAttributes" + JSON.stringify(calculatedAttributes))
-    let result = Object.create(calculatedAttributes);
-    console.log("result" + JSON.stringify(result))
     for (const c of determinationCases) {
         switch(c) {
             case "1_5_ambition": {
                 if (determination >= 1 && determination <= 5) {
-                    result.ambition.min = Math.max(10, result.ambition.min)
-                    result.ambition.max = Math.min(20, result.ambition.max)
+                    calculatedAttributes.ambition.min = Math.max(10, calculatedAttributes.ambition.min)
+                    calculatedAttributes.ambition.max = Math.min(20, calculatedAttributes.ambition.max)
                 }
                 break;
             }
             case "1_9_professionalism": {
                 if (determination >= 1 && determination <= 9) {
-                    result.professionalism.min = Math.max(5, result.professionalism.min)
-                    result.professionalism.max = Math.min(20, result.professionalism.max)
+                    calculatedAttributes.professionalism.min = Math.max(5, calculatedAttributes.professionalism.min)
+                    calculatedAttributes.professionalism.max = Math.min(20, calculatedAttributes.professionalism.max)
                 }
                 break;
             }
             case "1_9_pressure": {
                 if (determination >= 1 && determination <= 9) {
-                    result.pressure.min = Math.max(4, result.pressure.min)
-                    result.pressure.max = Math.min(20, result.pressure.max)
+                    calculatedAttributes.pressure.min = Math.max(4, calculatedAttributes.pressure.min)
+                    calculatedAttributes.pressure.max = Math.min(20, calculatedAttributes.pressure.max)
                 }
                 break;
             }
             case "1_9_sportsmanship": {
                 if (determination >= 1 && determination <= 9) {
-                    result.sportsmanship.min = Math.max(1, result.sportsmanship.min)
-                    result.sportsmanship.max = Math.min(17, result.sportsmanship.max)
+                    calculatedAttributes.sportsmanship.min = Math.max(1, calculatedAttributes.sportsmanship.min)
+                    calculatedAttributes.sportsmanship.max = Math.min(17, calculatedAttributes.sportsmanship.max)
                 }
                 break;
             }
             case "11_20_sportsmanship": {
                 if (determination >= 11 && determination <= 20) {
-                    result.sportsmanship.min = Math.max(5, result.sportsmanship.min)
-                    result.sportsmanship.max = Math.min(20, result.sportsmanship.max)
+                    calculatedAttributes.sportsmanship.min = Math.max(5, calculatedAttributes.sportsmanship.min)
+                    calculatedAttributes.sportsmanship.max = Math.min(20, calculatedAttributes.sportsmanship.max)
                 }
                 break;
             }
             case "15_20_pressure": {
                 if (determination >= 15 && determination <= 20) {
-                    result.pressure.min = Math.max(15, result.pressure.min)
-                    result.pressure.max = Math.min(16, result.pressure.max)
+                    calculatedAttributes.pressure.min = Math.max(15, calculatedAttributes.pressure.min)
+                    calculatedAttributes.pressure.max = Math.min(16, calculatedAttributes.pressure.max)
                 }
                 break;
             }
             case "18_20_ambition": {
                 if (determination >= 18 && determination <= 20) {
-                    result.ambition.min = Math.max(1, result.ambition.min)
-                    result.ambition.max = Math.min(9, result.ambition.max)
+                    calculatedAttributes.ambition.min = Math.max(1, calculatedAttributes.ambition.min)
+                    calculatedAttributes.ambition.max = Math.min(9, calculatedAttributes.ambition.max)
                 }
                 break;
             }
@@ -143,13 +141,9 @@ function applyDeterminationCases(determination, determinationCases, calculatedAt
             }
         }
     }
-    console.log("final result" + JSON.stringify(result))
-    return result;
 }
 
 function applyNotCases(notCases, calculatedAttributes) {
-    let result = Object.create(calculatedAttributes);
-    console.log("Resurl in casesa" + JSON.stringify(result))
     for (const c of notCases) {
         console.log(c)
         switch(c) {
@@ -162,8 +156,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 11,
                     max: 20
                 }
-                calculateRanges(result, temRange, "temperament")
-                calculateRanges(result, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, temRange, "temperament")
+                calculateRanges(calculatedAttributes, proRange, "professionalism")
                 break;
             }
             case "professional": {
@@ -175,8 +169,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 9
                 }
-                calculateRanges(result, proRange, "professionalism")
-                calculateRanges(result, temRange, "temperament")
+                calculateRanges(calculatedAttributes, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, temRange, "temperament")
                 break;
             }
             case "ambitious": {
@@ -188,8 +182,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 10,
                     max: 20
                 }
-                calculateRanges(result, ambRange, "ambition")
-                calculateRanges(result, loyRange, "loyalty")
+                calculateRanges(calculatedAttributes, ambRange, "ambition")
+                calculateRanges(calculatedAttributes, loyRange, "loyalty")
                 break;
             }
             case "unabitious": {
@@ -201,8 +195,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 10
                 }
-                calculateRanges(result, ambRange, "ambition")
-                calculateRanges(result, loyRange, "loyalty")
+                calculateRanges(calculatedAttributes, ambRange, "ambition")
+                calculateRanges(calculatedAttributes, loyRange, "loyalty")
       
                 break;
             }
@@ -215,8 +209,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 8,
                     max: 20
                 }
-                calculateRanges(result, loyRange, "loyalty")
-                calculateRanges(result, ambRange, "ambition")
+                calculateRanges(calculatedAttributes, loyRange, "loyalty")
+                calculateRanges(calculatedAttributes, ambRange, "ambition")
                 break;
             }
             case "spirit_or_jovial": {
@@ -228,8 +222,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(result, temRange, "temperament")
-                calculateRanges(result, preRange, "pressure")
+                calculateRanges(calculatedAttributes, temRange, "temperament")
+                calculateRanges(calculatedAttributes, preRange, "pressure")
                 break;
             }
             case "perfectionist": {
@@ -241,8 +235,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 10,
                     max: 17
                 }
-                calculateRanges(result, proRange, "professionalism")
-                calculateRanges(result, ambRange, "ambition")
+                calculateRanges(calculatedAttributes, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, ambRange, "ambition")
                 break;
             }
             case "evasive": {
@@ -254,8 +248,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(result, preRange, "pressure")
-                calculateRanges(result, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, preRange, "pressure")
+                calculateRanges(calculatedAttributes, proRange, "professionalism")
                 break;
             }
             case "level_headed": {
@@ -271,9 +265,9 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 12
                 }
-                calculateRanges(result, loyRange, "loyalty")
-                calculateRanges(result, spoRange, "sportsmanship")
-                calculateRanges(result, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, loyRange, "loyalty")
+                calculateRanges(calculatedAttributes, spoRange, "sportsmanship")
+                calculateRanges(calculatedAttributes, proRange, "professionalism")
                 break;
             }
             case "confrontational": {
@@ -285,8 +279,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 8,
                     max: 20
                 }
-                calculateRanges(result, temRange, "temperament")
-                calculateRanges(result, spoRange, "sportsmanship")
+                calculateRanges(calculatedAttributes, temRange, "temperament")
+                calculateRanges(calculatedAttributes, spoRange, "sportsmanship")
                 break;
             }
             case "unflappable": {
@@ -298,8 +292,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(result, temRange, "temperament")
-                calculateRanges(result, preRange, "pressure")
+                calculateRanges(calculatedAttributes, temRange, "temperament")
+                calculateRanges(calculatedAttributes, preRange, "pressure")
                 break;
             }
             case "reserved": {
@@ -311,8 +305,8 @@ function applyNotCases(notCases, calculatedAttributes) {
                     min: 1,
                     max: 14
                 }
-                calculateRanges(result, conRange, "controversy")
-                calculateRanges(result, proRange, "professionalism")
+                calculateRanges(calculatedAttributes, conRange, "controversy")
+                calculateRanges(calculatedAttributes, proRange, "professionalism")
                 break;
             }
         }
