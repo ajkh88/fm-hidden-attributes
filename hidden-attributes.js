@@ -16,7 +16,7 @@ function updatePersonalityTypes() {
     const checkbox = document.getElementById("is_newgen");
     const select = document.getElementById("personality_types");
     console.log("Initial select value is - " + select.value);
-    const selected = select.value;
+   
     if (checkbox.checked) {
         for (let key in newGenTypes) {
             // eslint-disable-next-line no-prototype-builtins
@@ -40,7 +40,7 @@ function updatePersonalityTypes() {
         }
     }
     const options = Array.from(select.options);
-    console.log(selected)
+    const selected = select.value;
 
     if (options.find((o) => o.value === selected)) {
         sortSelect(select);
