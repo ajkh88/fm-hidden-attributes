@@ -37,10 +37,10 @@ function updatePersonalityTypes() {
             }
         }
     }
-    sortSelect(select)
+    sortSelect("en", select)
 }
 
-function sortSelect(selectNode) {
+function sortSelect(lang, selectNode) {
     const optionNodes = Array.from(selectNode.children);
     const comparator = new Intl.Collator(lang.slice(0, 2)).compare;
 
