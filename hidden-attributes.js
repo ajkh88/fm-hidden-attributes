@@ -41,7 +41,6 @@ function updatePersonalityTypes() {
     }
     sortSelect(select);
     updateTable();
-    // select.contentWindow.location.reload(true);
 }
 
 function sortSelect(selElem) {
@@ -220,6 +219,7 @@ function generateSelectorElement(name) {
         });
 
         const newgenSelector = document.getElementById("is_newgen")
+        newgenSelector.checked = true;
         newgenSelector.addEventListener("change", () => {
             updateTable();
             updatePersonalityTypes();
