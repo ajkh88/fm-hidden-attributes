@@ -40,11 +40,10 @@ function updatePersonalityTypes() {
     }
     const options = Array.from(select.options);
 
-    for (let o of options) {
-        console.log(JSON.stringify(o.value))
-    }
 
-    if (options.find((o) => o.name === selected)) {
+    console.log(selected)
+
+    if (options.find((o) => o.value === selected)) {
         console.log("Found " + selected)
         select.value = select.options.item(0);
     }
