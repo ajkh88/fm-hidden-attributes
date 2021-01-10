@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+  <title>FM: Hidden Attributes</title>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <script type="text/javascript" src="hidden-attributes.js"></script>
+  <script type="text/javascript" src="hidden-attributes-data.js"></script>
+</head>
+
+<body>
+  <h1>
+    Fußball Führer - Hidden Attributes
+  </h1>
+
+  <label for="newgen">Newgen?</label>
+  <input type="checkbox" id="is_newgen" name="newgen" value="newgen">
+  <br>
+  <br>
+  <label for="determination">Enter determination (1-20):</label>
+  <input type="number" id="determination" name="determination" min="1" max="20">
+  <br>
+  <br>
+  <label for="personality">Select personality type:</label>
+  <select name="personality" id="personality_types"></select>
+  <br>
+  <br>
+  <label for="media_handling">Select media handling type:</label>
+  <select name="media_handling" id="media_handling"></select>
+  <br>
+
+  <table id="attributes_table">
+    <tr>
+      <th>Attribute</th>
+      <th>Min</th>
+      <th>Max</th>
+    </tr>
+    <tbody>
+      <tr>
+        <td id="professionalism_row">Professionalism</td><td id="professionalism_min"></td><td id="professionalism_max"></td>
+      </tr>
+      <tr>
+        <td id="determination_row">Determination</td><td id="determination_min"></td><td id="determination_max"></td>
+      </tr>
+      <tr>
+        <td id="ambition_row">Ambition</td><td id="ambition_min"></td><td id="ambition_max"></td>
+      </tr>
+      <tr>
+        <td id="pressure_row">Pressure</td><td id="pressure_min"></td><td id="pressure_max"></td>
+      </tr>
+      <tr>
+        <td id="temperament_row">Temperament</td><td id="temperament_min"></td><td id="temperament_max"></td>
+      </tr>
+      <tr>
+        <td id="loyalty_row">Loyalty</td><td id="loyalty_min"></td><td id="loyalty_max"></td>
+      </tr>
+      <tr>
+        <td id="sportsmanship_row">Sportsmanship</td><td id="sportsmanship_min"></td><td id="sportsmanship_max"></td>
+      </tr>
+      <tr>
+        <td id="controversy_row">Controversy</td><td id="controversy_min"></td><td id="controversy_max"></td>
+      </tr>
+    </tbody>
+
+  </table>
+</body>
