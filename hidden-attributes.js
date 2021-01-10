@@ -41,7 +41,7 @@ function updatePersonalityTypes() {
     const options = Array.from(select.options);
 
     for (let o of options) {
-        console.log(JSON.stringify(o))
+        console.log(JSON.stringify(o.value))
     }
 
     if (options.find((o) => o.name === selected)) {
