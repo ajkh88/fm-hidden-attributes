@@ -311,12 +311,14 @@ function applyNotCases(notCases, calculatedAttributes) {
     }
 }
 
-function calculateRanges(calculatedAttributes, range, facet) {
-    console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
-    if (isOverlapping(range, calculatedAttributes[facet])) {
-        calculatedAttributes[facet].min = Math.max(range.min, calculatedAttributes[facet].min)
-        calculatedAttributes[facet].max = Math.min(range.max, calculatedAttributes[facet].max)
+function calculateRanges(calculatedAttributes, range, attribute) {
+    console.log("calculating range for : " + JSON.stringify(range) + " with attr " + attribute)
+   
+    if (isOverlapping(range, calculatedAttributes[attribute])) {
+        calculatedAttributes[attribute].min = Math.max(range.min, calculatedAttributes[attribute].min)
+        calculatedAttributes[attribute].max = Math.min(range.max, calculatedAttributes[attribute].max)
     }
+    console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
 }
 
 function isOverlapping(a, b) {
