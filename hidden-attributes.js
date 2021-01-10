@@ -317,6 +317,7 @@ function applyNotCases(notCases, calculatedAttributes) {
 }
 
 function calculateRanges(result, range, facet) {
+    console.log(JSON.stringify(result))
     if (isOverlapping(range, result[facet])) {
         result[facet].min = Math.max(range[facet].min, result[facet].min)
         result[facet].max = Math.min(range[facet].max, result[facet].max)
