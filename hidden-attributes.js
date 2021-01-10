@@ -74,6 +74,7 @@ export function updateTable() {
     const determination = document.getElementById("determination").value
 
     applyDeterminationCases(determination, personalityAttributes.cases_determination, attributes)
+    console.log("Starting point: " + JSON.stringify(attributes))
     applyNotCases(personalityAttributes.cases_not, attributes);
     applyNotCases(mediaHandlingAttributes.cases_not, attributes);
 
