@@ -15,6 +15,7 @@ function updatePersonalityTypes() {
     };
     const checkbox = document.getElementById("is_newgen");
     const select = document.getElementById("personality_types");
+    const selected = select.value;
     if (checkbox.checked) {
         for (let key in newGenTypes) {
             // eslint-disable-next-line no-prototype-builtins
@@ -37,7 +38,15 @@ function updatePersonalityTypes() {
             }
         }
     }
-    sortSelect("en", select)
+    const options = Array.from(select.options);
+   
+    console.log(JSON.stringify(options));
+
+    if (options.find((o) => o.name === selected)) {
+        select.value = select.options.item(0);
+    }
+    sortSelect("en", select);
+
 }
 
 function sortSelect(lang, selectNode) {
@@ -207,7 +216,7 @@ function generateSelectorElement(name) {
         });
 
         const newgenSelector = document.getElementById("is_newgen")
-        newgenSelector.addEventListener("click", () => {
+        newgenSelector.addEventListener("change", () => {
             updateTable();
             updatePersonalityTypes();
         });
