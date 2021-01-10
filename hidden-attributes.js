@@ -15,6 +15,7 @@ function updatePersonalityTypes() {
     };
     const checkbox = document.getElementById("is_newgen");
     const select = document.getElementById("personality_types");
+    console.log("Initial select value is - " + select.value);
     const selected = select.value;
     if (checkbox.checked) {
         for (let key in newGenTypes) {
@@ -39,8 +40,6 @@ function updatePersonalityTypes() {
         }
     }
     const options = Array.from(select.options);
-
-
     console.log(selected)
 
     if (options.find((o) => o.value === selected)) {
@@ -48,6 +47,7 @@ function updatePersonalityTypes() {
     } else {
         console.log("Not Found " + selected);
         select.value = select.options.item(0);
+        console.log("Final select value is - " + select.value);
         updatePersonalityTypes();
     }
 }
