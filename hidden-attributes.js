@@ -40,7 +40,8 @@ function updatePersonalityTypes() {
         }
     }
     sortSelect(select);
-    select.contentWindow.location.reload(true);
+    updateTable();
+    // select.contentWindow.location.reload(true);
 }
 
 function sortSelect(selElem) {
