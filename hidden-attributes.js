@@ -75,8 +75,8 @@ export function updateTable() {
 
     applyDeterminationCases(determination, personalityAttributes.cases_determination, attributes)
     console.log("Starting point: " + JSON.stringify(attributes))
-    applyNotCases(personalityAttributes.cases_not, attributes);
-    applyNotCases(mediaHandlingAttributes.cases_not, attributes);
+    applyNotCases(personalityAttributes.cases_not, attributes, personalityData);
+    applyNotCases(mediaHandlingAttributes.cases_not, attributes, mediaHandlingData);
 
     for (const attribute in attributes) {
         document.getElementById(attribute + "_min").innerHTML = attributes[attribute].min;
