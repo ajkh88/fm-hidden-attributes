@@ -318,15 +318,15 @@ function applyNotCases(notCases, calculatedAttributes) {
 function calculateRanges(calculatedAttributes, range, attribute) {
     console.log("calculating range for : " + JSON.stringify(range) + " with attr " + attribute)
    
-    if (isOverlapping(range, calculatedAttributes[attribute])) {
+    if (isNotOverlapping(range, calculatedAttributes[attribute])) {
         calculatedAttributes[attribute].min = Math.max(range.min, calculatedAttributes[attribute].min)
         calculatedAttributes[attribute].max = Math.min(range.max, calculatedAttributes[attribute].max)
     }
     console.log("calculatedAttributes: " + JSON.stringify(calculatedAttributes))
 }
 
-function isOverlapping(a, b) {
-    return a.min <= b.max && b.min <= a.max;
+function isNotOverlapping(a, b) {
+    return !(a.min <= b.max && b.min <= a.max);
 }
 
 function mergeAttributes(personalityAttributes, mediaHandlingAttributes) {
