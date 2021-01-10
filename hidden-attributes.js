@@ -69,17 +69,17 @@ export function updateTable() {
 
     const personalityAttributes = personalityData[personalityType];
     const mediaHandlingAttributes = mediaHandlingData[mediaHandlingStyle];
-    const merged = mergeAttributes(personalityAttributes, mediaHandlingAttributes);
+    const attributes = mergeAttributes(personalityAttributes, mediaHandlingAttributes);
 
     const determination = document.getElementById("determination").value
 
-    const determinationCasesApplied = applyDeterminationCases(determination, personalityAttributes.cases_determination, merged)
-    const notCasesApplied = applyNotCases(personalityAttributes.cases_not, determinationCasesApplied);
-    const mediaNotCasesApplied = applyNotCases(mediaHandlingAttributes.cases_not, notCasesApplied);
+    applyDeterminationCases(determination, personalityAttributes.cases_determination, attributes)
+    applyNotCases(personalityAttributes.cases_not, attributes);
+    applyNotCases(mediaHandlingAttributes.cases_not, attributes);
 
-    for (const attribute in determinationCasesApplied) {
-        document.getElementById(attribute + "_min").innerHTML = mediaNotCasesApplied[attribute].min;
-        document.getElementById(attribute + "_max").innerHTML = mediaNotCasesApplied[attribute].max;
+    for (const attribute in attributes) {
+        document.getElementById(attribute + "_min").innerHTML = attributes[attribute].min;
+        document.getElementById(attribute + "_max").innerHTML = attributes[attribute].max;
     }
 }
 
